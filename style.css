@@ -27,28 +27,49 @@ body {
 
 .button {
     display: block;
-    border: 0;
-    background: black;
-    color: white;
-    font-family: -system-ui, sans-serif;
-    height: 10%;
     width: 55%;
-    margin: 10px;
-    text-decoration: none;
-    cursor: pointer;
+    height: 25px;
+    background: black;
+    padding: 10px;
     text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 25px;
+    font-family: arial;
+    margin-top: 20px;
 }
 
-div  {
-    border: solid 1px black;
-}
 .inner {
     display: flex;
     flex-direction: column;
 }
 
-.inner button {
-    margin-top: 10px;
-    width: 50%;
+.number_next {
+    display: block;
+    width: 25%;
+    height: 15px;
+    background: black;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 15px;
+    font-family: arial;
+    margin-top: 20px;
+}
 
+.inner .quick_button {
+    position: relative;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 3px;
+    width: 40px;
+
+    
 }
