@@ -11,7 +11,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-
+$sql = '';
 $sql .= "INSERT INTO history (num,promo,cost,date_purc,date_exp)
 VALUES ('09983023652','GigaSurf99','99','May 30','June 7');";
 $sql .= "INSERT INTO users (num,name,sim_prov,regdate)
