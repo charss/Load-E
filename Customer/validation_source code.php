@@ -10,8 +10,8 @@
             <input type="submit" name="submit" value="Load">
         </form>
     
-    
 
+<!-- This code is already integrated in the enter_number.php -->
 <?php
     $num = '';
     $check = $load = $cash = 0;
