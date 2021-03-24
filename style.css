@@ -8,7 +8,17 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100%;
-    
+}
+
+.test {
+    position: absolute;
+    border: 1px solid black;
+    width: 400px;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
 }
   
 .container {
@@ -22,7 +32,6 @@ body {
     min-width: 400px;
     max-width: 40%;
     height: 50vh;
-    
 }
 
 .button {
@@ -70,6 +79,46 @@ body {
     border-radius: 5px;
     padding: 3px;
     width: 40px;
+}
 
-    
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.promo_table, th, td {
+    /* Center this table */
+    border: 1px solid black;
+    border-collapse: collapse;
 }
