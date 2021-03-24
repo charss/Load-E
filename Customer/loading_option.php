@@ -17,7 +17,7 @@
                 if(isset($_POST['promo'])) {
                     include 'promo_screen.html';
                 } else if(isset($_POST['regular'])) {
-                    include 'regular_screen.html';
+                    include 'regular_screen.php';
                 }
             ?>
         </div>
