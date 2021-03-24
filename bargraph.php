@@ -123,7 +123,6 @@ h1 {
  <?php
 
  for($i=0; $i<$totalrows; $i++){
-	 //$strh = $heightdiv[$i]+'%';
 	echo nl2br("<div class='bar' style = 'height:$heightdiv[$i]"."%'".">"."$height[$i]"."<div class='barlabel'>"."$month[$i]"."</div></div>");  
  }
  
