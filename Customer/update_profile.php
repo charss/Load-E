@@ -44,6 +44,7 @@
                         $_SESSION['name'] = $user;
                         $_SESSION['pass'] = $pass;
                         $_SESSION['number'] = $number;
+                        session_destroy();
                         header('refresh:0.01; url=profile_or_load.html');;
                     } else {
                         echo "Error updating record: " . $conn->error;
