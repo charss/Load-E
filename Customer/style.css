@@ -125,12 +125,30 @@ input[type=number] {
 
 .title {
     margin-bottom: 10px;
-    text-align:center;
-    width: 210px;
+    text-align: center;
+    width: 100%;
     color:green;
-    border: solid black 2px;
+    
 }
 
 .regular_load_table {
     width: 100%;
+}
+
+.input_button {
+    background-color:white;
+    color: black;
+    border: solid black 2px;
+    width:100%
+}
+
+.input_text {
+    background-color:white;
+    border: solid black 2px;
+    width: 100%
+}
+
+.input_button.active {
+  background-color: pink;
+  color: white;
 }
