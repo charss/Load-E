@@ -15,7 +15,7 @@
                     </div>
                 </form>
                 <!-- <a href='./loading_option.html' class='number_next'>Next</a> -->
-                <a href='./register_or_load.html'>Back</a>
+                <a href='./profile_or_load.html'>Back</a>
             </div>
         </div>
         
@@ -53,6 +53,7 @@
                     $len = strlen($num);
                     $get_09 = substr($num, 0, 2);
                     $check = 1;
+                    $network = '';
 
                     if ($get_09 != "09") {
                         echo "<script>alert('Invalid number. Please enter a valid mobile number that starts with 09.')</script>";
@@ -71,15 +72,37 @@
                         for($i = 0; $i < $len; $i++){
                             if ($get_4dgt == $globetm[$i]){
                                 echo "Your network is Globe/TM<br>";
+                                $network = 'Globe/TM';
+                                $check = 4; 
+                                $invalid = 1;
+                            }
+                        }
+
+                        $len = count($globe);
+                        for($i = 0; $i < $len; $i++){
+                            if ($get_4dgt == $globe[$i]){
+                                echo "Your network is Globe<br>";
+                                $network = 'Globe';
                                 $check = 4; 
                                 $invalid = 1;
                             }
                         }
                         
+                        $len = count($tm);
+                        for($i = 0; $i < $len; $i++){
+                            if ($get_4dgt == $tm[$i]){
+                                echo "Your network is TM<br>";
+                                $network = 'TM';
+                                $check = 4; 
+                                $invalid = 1;
+                            }
+                        }
+
                         $len = count($globepost);
                         for($i = 0; $i < $len; $i++){
                             if ($get_5dgt == $globepost[$i]){
                                 echo "Your network is Globe Postpaid<br>";
+                                $network = 'Globe Postpaid';
                                 $check=4;
                                 $invalid = 1; 
                             }
@@ -89,6 +112,7 @@
                         for($i = 0; $i<$len; $i++){
                             if ($get_4dgt == $smart[$i]){
                                 echo "Your network is Smart<br>";
+                                $network = 'Smart';
                                 $check = 4;
                                 $invalid = 1;
                             }
@@ -98,6 +122,7 @@
                         for($i=0; $i<$len; $i++){
                             if ($get_4dgt == $sun[$i]){
                                 echo "Your network is Sun<br>";
+                                $network = 'Sun';
                                 $check=4;
                                 $invalid = 1; 
                             }
@@ -107,6 +132,7 @@
                         for($i = 0; $i < $len; $i++){
                             if ($get_4dgt == $tnt[$i]){
                                 echo "Your network is Talk N Text<br>";
+                                $network = 'Talk N Text';
                                 $check = 4; 
                                 $invalid = 1;
                             }
@@ -115,6 +141,11 @@
                         if ($invalid == 0){
                             echo "Invalid Network. <br>";
                             break;
+                        } else {
+                            session_start();
+                            $_SESSION['number'] = $num;
+                            $_SESSION['network'] = $network;
+                            header('location: loading_option.php');
                         }
                     }
                 }

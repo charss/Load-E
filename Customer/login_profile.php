@@ -9,7 +9,7 @@
                     <div class='inner'>
                         <input type='text' name='user' placeholder='username'>
                         <input type='password' name='pass' placeholder='password'>
-                        <input type='submit' name='login' value='Register'>
+                        <input type='submit' name='update' value='Update'>
                     </div>
                 </form>
                 <a href='register_or_update.html'>Back</a>
@@ -17,7 +17,7 @@
         </div>
 
         <?php
-            if(isset($_POST['login'])) {
+            if(isset($_POST['update'])) {
                 $servername = 'localhost';
                 $username = 'root';
                 $password = '';
@@ -32,20 +32,29 @@
                     echo "OK";
                     $user = $_POST['user'];
                     $pass = $_POST['pass'];
-                    
+                    $login = false;
                     $sql = "SELECT * FROM users WHERE name='$user'";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
                         session_start();
                         while($row = $result->fetch_assoc()) {
-                            echo "username " . $row['name'] . "<br>";
-                            $_SESSION['id'] = $row['id'];
-                            $_SESSION['name'] = $row['name'];
-                            $_SESSION['number'] = $row['contactnum'];
-                            $_SESSION['pass'] = $row['pass'];
-                            $_SESSION['logged'] = true;
+                            if ($pass == $row['pass']) {
+                                $_SESSION['id'] = $row['id'];
+                                $_SESSION['name'] = $row['name'];
+                                $_SESSION['number'] = $row['num'];
+                                $_SESSION['pass'] = $row['pass'];
+                                $_SESSION['logged'] = true;
+                                $login = true;
+                            }
                         }
-                        header("location: ./update_profile.php");
+                        
+                        if ($login == false) {
+                            echo "<script>alert('Incorrect password! Please try again.')</script>";
+                            header("refresh:0.1; url=login_profile.php");
+                        } else {
+                            header("location: ./update_profile.php");
+                        }
+                        
                     } else {
                         echo "<script>alert('Username and password does not exist. Please try again')</script>";
                         header("refresh:0.1; url=login.php");

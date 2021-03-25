@@ -22,6 +22,7 @@
     <body class='parent'>
         <form method='post'>
             <div>
+                <div class='title'>Load</div>
                 <!-- <div class='title '>GeeksforGeeks Calculator</div> -->
                 <table border="1" class='regular_load_table'>
                     <tr>
@@ -30,19 +31,19 @@
                     <tr>
                         <!-- create button and assign value to each button -->
                         <!-- dis("1") will call function dis to display value -->
-                        <td><input type="button" value="10" onclick="dis('10')"/> </td>
-                        <td><input type="button" value="20" onclick="dis('20')"/> </td>
-                        <td><input type="button" value="30" onclick="dis('30')"/> </td>
+                        <td><input type="button" value="10" onclick="load_dis('10')"/> </td>
+                        <td><input type="button" value="20" onclick="load_dis('20')"/> </td>
+                        <td><input type="button" value="30" onclick="load_dis('30')"/> </td>
                     </tr>
                     <tr>
-                        <td><input type="button" value="50" onclick="dis('50')"/> </td>
-                        <td><input type="button" value="100" onclick="dis('100')"/> </td>
-                        <td><input type="button" value="150" onclick="dis('150')"/> </td>
+                        <td><input type="button" value="50" onclick="load_dis('50')"/> </td>
+                        <td><input type="button" value="100" onclick="load_dis('100')"/> </td>
+                        <td><input type="button" value="150" onclick="load_dis('150')"/> </td>
                     </tr>
                     <tr>
-                        <td><input type="button" value="450" onclick="dis('400')"/> </td>
-                        <td><input type="button" value="600" onclick="dis('600')"/> </td>
-                        <td><input type="button" value="900" onclick="dis('900')"/> </td>
+                        <td><input type="button" value="450" onclick="load_dis('400')"/> </td>
+                        <td><input type="button" value="600" onclick="load_dis('600')"/> </td>
+                        <td><input type="button" value="900" onclick="load_dis('900')"/> </td>
                     </tr>
                 </table>
                 <input type='submit' name='submit' value='Next'>
@@ -57,6 +58,10 @@
                     $load = intval($_POST['load']);
                     if ($load < 5 or $load > 1000) {
                         echo "<script>alert('You have provided an invalid amount. Please enter a value between 5 - 1000')</script>";
+                    } else {
+                        session_start();
+                        $_SESSION['load'] = $num;
+                        header('location: deposit_money.php');
                     }
                 }
             }
