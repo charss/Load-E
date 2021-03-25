@@ -20,9 +20,12 @@
     </head>
     <!-- create table -->
     <body class='parent'>
+        <?php 
+            session_start();
+        ?>
         <form method='post'>
             <div>
-                <div class='title '>Payment Step</div>
+                <div class='title '>Payment</div>
                 <table border="1" class='regular_load_table'>
                     <tr>
                         <td colspan="3"><input type="text" id="result" value='0' name='load' maxlength="4" readonly/></td>

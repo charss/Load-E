@@ -1,7 +1,11 @@
 function dis(val) {
     var current = eval(document.getElementById("result").value);
     current = current + eval(val);
-    document.getElementById("result").value = current
+    document.getElementById("result").value = current;
+}
+
+function load_dis(val) {
+    document.getElementById("result").value = val;
 }
 
 //function that evaluates the digit and return result
