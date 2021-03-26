@@ -39,7 +39,8 @@ h3 {
     <td>Balance of vendor: <br> <?php echo $vendor;?></td>
   </tr>
   <tr>
-    <td>Add Money</td>
+    <!-- isip ko sana kung button ito-->
+    <td>Cash in</td>
   </tr>
 </table>
 
