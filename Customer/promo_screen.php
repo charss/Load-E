@@ -8,8 +8,8 @@
     <body>
         <div class="test">
             <div class='topnav'> 
-                <a href='#' name='regular' class='nav_active'>Regular Load</a>
-                <a href='./promo_screen.php' name='promo'>Promos</a>
+                <a href='./loading_option.php' name='regular'>Regular Load</a>
+                <a href='#' name='promo' class='nav_active'>Promos</a>
             </div>
 
             <form method='post'>
