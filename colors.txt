@@ -1,0 +1,4 @@
+main - #F5F5F5
+gray - #6E8898
+light gray - #B8B8B8
+black - #182125
