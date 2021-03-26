@@ -6,8 +6,6 @@
 body {
     padding: 0px;
     margin: 0px;
-    padding: 0px;
-    margin: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +24,7 @@ body {
 
 .test {
     position: absolute;
-    border: 1px solid black;
+    border: 1px solid #B8B8B8;
     width: 50%;
     max-width: 400px;
     height: auto;
@@ -34,6 +32,7 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
+    border-radius: 2%;
 }
 
 .topbar {
@@ -128,15 +127,7 @@ body {
     margin-top: 20px;
 }
 
-.inner .quick_button {
-    position: relative;
-    background: black;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    padding: 3px;
-    width: 40px;
-}
+
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -206,6 +197,7 @@ input[type=number] {
     padding-right: 10px;
     text-align: center;
     margin-top: 10px;
+    width: 50%;
 }
 
 .amount_div {
@@ -223,7 +215,7 @@ input[type=number] {
 }
 
 .input_text {
-    background-color:white;
+    background-color:#F5F5F5;
     border: 0;
     flex-grow: 4;
     text-align: right;
@@ -313,4 +305,52 @@ input:focus, textarea:focus, select:focus{
 .registration_div form .inner input {
     margin-top: 10px;
     padding: 8px 0px 8px 10px;
+}
+
+.contact {
+    border: 1px solid black;
+    padding: 10px 0px 10px 10px;
+}
+
+.no_deco {
+    text-decoration: none;
+    color: #182125;
+}
+
+.quick_button {
+    position: relative;
+    width: 30px;
+    height: 25px;
+    top: 1px;
+    margin-right: 5px;
+    top: 5px;
+}
+
+.quick_a {
+    text-decoration: none;
+}
+
+
+.number_div {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid #B8B8B8;
+    padding-bottom: 10px;
+    width: 45%;
+}
+
+.number_input {
+    background-color:#F5F5F5;
+    border: 0px;
+    flex-grow: 4;
+    font-size: 18px;
+    text-align: left;
+    padding-bottom: 2px;
+    padding-right: 10px;
+    margin-bottom: -10px;
+    width: 50%;
+}
+
+.focused {
+    border-bottom: 2px solid #6E8898;
 }

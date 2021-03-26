@@ -5,3 +5,4 @@
 	$dbname = "testphp";
 	// Create connection
 	$conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
+}
