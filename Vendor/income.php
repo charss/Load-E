@@ -38,6 +38,10 @@ h3 {
   <tr>
     <td>Vendor:<br><?php echo $vendor;?></td>
   </tr>
+  <tr>
+    <!-- ito parang 'yung income i-a-add dun sa balance ni vendor kung gusto niya-->
+    <td>Add to current balance</td>
+  </tr>
  
 </table>
 

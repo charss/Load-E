@@ -22,7 +22,7 @@ h3 {
 </style>
 
 
-<h3>Balance</h3>
+<h3>Available Balance</h3>
 <?php
 	//iko-connect pa yata 'to sa database so mga variable muna gawin ko
 	$bal = 5000;
@@ -39,7 +39,8 @@ h3 {
     <td>Balance of vendor: <br> <?php echo $vendor;?></td>
   </tr>
   <tr>
-    <td>Add Money</td>
+    <!-- isip ko sana kung button ito-->
+    <td>Cash in</td>
   </tr>
 </table>
 
