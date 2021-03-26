@@ -1,13 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+* {
+    font-family: 'Open Sans';
+}
 body {
     padding: 0px;
     margin: 0px;
-}
-
-.parent {
+    padding: 0px;
+    margin: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100%;
+    height: 100%;
+    background-color: #F5F5F5;
+}
+
+.parent {
+    border: 1px solid #B8B8B8;
+    border-radius: 2%;
+    min-width: 400px;
+    min-height: 300px;
+    overflow: hidden;
+    height: auto;
 }
 
 .test {
@@ -22,33 +36,75 @@ body {
     padding: 10px;
 }
 
+.topbar {
+    background-color: #6E8898;
+    width: 100%;
+    height: 30px;
+    line-height: 28px;
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.topbar text{
+    text-align: center;
+}
+
+.topbar img {
+    position: relative;
+    /* float: left; */
+    width: 8px;
+    height: auto;
+    top: 1px;
+    opacity: 0.5;
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.topbar a {
+    text-decoration: none;
+}
+
+.topbar img:hover {
+    opacity: 1;
+}
+
+.topbar div {
+    width: 100%;
+}
+
 .container {
+    padding-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid black;
-    border-radius: 2%;
-    width: 40%;
-    min-width: 400px;
-    max-width: 40%;
-    height: 50vh;
 }
 
 .button {
     display: block;
     width: 55%;
     height: 25px;
-    background: black;
+    background: #F5F5F5;
+    border: 2px solid #6E8898;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
-    color: white;
-    font-weight: bold;
+    color: #6E8898;
     text-decoration: none;
     line-height: 25px;
     font-family: arial;
     margin-top: 20px;
+    font-size: 13px;
+}
+
+.button:hover {
+    background: #6E8898;
+    color: #F5F5F5;
+}
+
+.header_text {
+    font-size: 25px;
+    margin-bottom: 10px;
 }
 
 .inner {
@@ -240,4 +296,21 @@ input:focus, textarea:focus, select:focus{
     border: 1px solid black;
     /* border: 0px; */
     border-radius: 3px;
+}
+
+.registration_div span {
+    font-size: 20px;
+}
+
+.registration_div {
+    padding: 20px;
+}
+
+.registration_div form {
+    margin-top: 5px;
+}
+
+.registration_div form .inner input {
+    margin-top: 10px;
+    padding: 8px 0px 8px 10px;
 }
