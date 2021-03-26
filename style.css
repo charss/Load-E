@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+* {
+    font-family: 'Open Sans';
+    font-weight: 400;
+}
+
 body {
     padding: 0px;
     margin: 0px;
@@ -5,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100%;
+    background-color: #F5F5F5;
 }
 
 .container {
@@ -12,23 +20,22 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid #B8B8B8;
     border-radius: 2%;
-    width: 40%;
     min-width: 400px;
-    max-width: 40%;
-    height: 50vh;
+    height: 300px;
 }
 
 .button {
     display: block;
     width: 55%;
     height: 25px;
-    background: black;
+    background: #F5F5F5;
+    border: 2px solid #6E8898;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
-    color: white;
+    color: #6E8898;
     font-weight: bold;
     text-decoration: none;
     line-height: 25px;
@@ -36,4 +43,11 @@ body {
     margin-top: 20px;
 }
 
+.button:hover {
+    background: #6E8898;
+    color: #F5F5F5;
+}
 
+span {
+    font-size: 30px;
+}

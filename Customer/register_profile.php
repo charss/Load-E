@@ -1,20 +1,29 @@
 <html>
+    <?php
+        include 'validation_source.php';
+    ?>
     <head>
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
         <div class="parent">
-            <div class='container'>
+            <div class='topbar'>
+                <a href='./register_or_update.html'>
+                    <img src='../assets/back.png'>
+                </a>
+                <text>REGISTER PROFILE</text>
+            </div>
+            <div class='registration_div'>
+                <span class='header_text'>Registration Form</span>
                 <form method='post'>
                     <div class='inner'>
-                        <input type='text' name='user' placeholder='username'>
-                        <input type='password' name='pass' placeholder='password'>
+                        <input type='text' name='user' placeholder='Username'>
+                        <input type='password' name='pass' placeholder='Password'>
                         <input type='password' name='cpass' placeholder='Confirm Password'>
-                        <input type='number' name='number' placeholder='number'>
+                        <input type='number' name='number' placeholder='Number'>
                         <input type='submit' name='register' value='Register'>
                     </div>
                 </form>
-                <a href='register_or_update.html'>Back</a>
             </div>
         </div>
         <?php
@@ -53,8 +62,6 @@
 
                     $conn->close();
                 }
-                
-                
             }
         ?>
     </body>
