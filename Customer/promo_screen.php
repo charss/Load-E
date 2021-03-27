@@ -45,7 +45,7 @@
         .price .cash {
             font-size: 30px;
             font-weight: 600;
-            color: #6E8898;
+            color: var(--secondary);
             font-family: 'Rubik';
         }
         .descrip {

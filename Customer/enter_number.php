@@ -33,9 +33,9 @@
                 <span class='header_text'>Enter Number</span>
                 <form class='number_form' method='post'>
                     <div class='number_div' id='input1'>
-                        <input type='number' class='number_input' maxlength="11" id='in' name='mobile_number' value='<?php if (isset($_GET['num'])) { echo $_GET['num']; } else { echo ""; } ?>' placeholder='Number' />
+                        <input type='text' class='number_input' maxlength="11" id='in' onkeypress="return onlyNumber(event)" name='mobile_number' value='<?php if (isset($_GET['num'])) { echo $_GET['num']; } else { echo ""; } ?>' placeholder='Number' />
                         <a href='./contacts.php' name='mobile_number' class='quick_a'>
-                            <img src='../assets/contacts.svg' onmouseover="this.src='../assets/contacts_colored.svg'" onmouseout="this.src='../assets/contacts.svg'" class='quick_button'>
+                            <img src='../assets/contacts.svg' onmouseover="this.src='../assets/trial.svg'" onmouseout="this.src='../assets/contacts.svg'" class='quick_button'>
                         </a>
                     </div>
                     
@@ -61,7 +61,7 @@
                 }
             } 
         ?>
-
+        <script src='../javascript/regular_load.js'></script>
         <script>
             var input = document.getElementById('in'), div = document.getElementById('input1');
 

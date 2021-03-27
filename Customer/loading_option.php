@@ -3,8 +3,20 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <script src='script.js'></script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        .load_next {
+            margin-top: 15px;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            background: var(--main);
+        }
+
+        .load_next:hover {
+            background: var(--secondary);
+            color: #F5F5F5;
+        }
+    </style>
     <body>
         <?php
             session_start();
@@ -27,9 +39,9 @@
                         <p class='title'>Enter Amount</p>
                     </div>
                     <div class="div02">
-                        <div class='amount_div'>
+                        <div class='amount_div' id='div_yeah'>
                             <label class='amount_label'>PHP</label>
-                            <input type="text" onkeypress="return onlyNumber(event)" name='load' onKeyUp='sample()' id="result" class='input_text' maxlength="4"/>
+                            <input type="text" onkeypress="return onlyNumber(event)" name='load' autocomplete="off" onKeyUp='sample()' id="result" class='input_text' maxlength="4"/>
                         </div>
                         <span class='simple_text'>Enter an amount between 5 - 1000 or choose from the options below.</span>
                     </div>
@@ -77,9 +89,8 @@
                         if ($load < 5 or $load > 1000) {
                             echo "<script>alert('You have provided an invalid amount. Please enter a value between 5 - 1000')</script>";
                         } else {
-                            session_start();
                             $_SESSION['load'] = $load;
-                            header('location: receipt.php');
+                            header('location: you_sure.php');
                         }
                     } else {
                         echo "<script>alert('Please enter an amount')</script";
@@ -87,5 +98,17 @@
                 }
             ?>
         </div>
+
+        <script>
+            var input = document.getElementById('result'), div = document.getElementById('div_yeah');
+
+            input.addEventListener('focus', function() {
+                div.classList.add('focused');
+            }, false);
+
+            input.addEventListener('blur', function() {
+                div.classList.remove('focused');
+            }, false);
+        </script>
     </body>
 </html>

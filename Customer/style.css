@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Lexend:wght@500&family=Rubik&display=swap');
+
+:root {
+    --main: #F5F5F5;
+    --light_gray: #B8B8B8;
+    --black: #182125;
+    --secondary: #06cc70;
+}
 
 * {
     font-family: 'Open Sans';
@@ -36,7 +44,7 @@ body {
 
 .topbar {
     
-    background-color: #6E8898;
+    background-color: var(--secondary);
     width: auto;
     height: 30px;
     line-height: 28px;
@@ -84,11 +92,11 @@ body {
     width: 55%;
     height: 25px;
     background: #F5F5F5;
-    border: 2px solid #6E8898;
+    border: 2px solid var(--secondary);
     padding: 10px;
     text-align: center;
     border-radius: 5px;
-    color: #6E8898;
+    color: var(--secondary);
     text-decoration: none;
     line-height: 25px;
     font-family: arial;
@@ -97,7 +105,7 @@ body {
 }
 
 .button:hover {
-    background: #6E8898;
+    background: var(--secondary);
     color: #F5F5F5;
 }
 
@@ -158,7 +166,7 @@ input[type=number] {
 }
 
 .nav_active {
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid var(--secondary);
 }
 
 .topnav a:hover {
@@ -209,9 +217,13 @@ input[type=number] {
 }
 
 .amount_label {
+    position: relative;
     margin-right: 10px;
     padding-bottom: 5px;
     padding-left: 10px;
+    font-size: 15px;
+    text-align: end;
+    top: 13px;
 }
 
 .input_text {
@@ -222,6 +234,8 @@ input[type=number] {
     padding-bottom: 5px;
     padding-right: 10px;
     width: 50%;
+    font-family: 'Rubik';
+    font-size: 22px;
 }
 
 input:focus, textarea:focus, select:focus{
@@ -230,21 +244,22 @@ input:focus, textarea:focus, select:focus{
 
 .input_button {
     position: relative;
-    background-color:white;
-    color: black;
-    border: solid black 2px;
+    background-color: var(--main);
+    color: var(--black);
+    border: solid var(--black) 2px;
     width: 100%;
-    /* height: 100px; */
+    font-family: 'Rubik';
     left: 50%;
+    font-size: 20px;
     transform: translate(-50%);
-    padding: 20px;
-    border-radius: 10%;
+    padding: 15px;
+    border-radius: 20px;
     text-align: center;
+    box-shadow: 3px 2px #88888880;
 }
 
 .input_button.active {
-  background-color: pink;
-  color: white;
+  background-color: var(--secondary);
 }
 
 
@@ -297,9 +312,6 @@ input:focus, textarea:focus, select:focus{
     margin-top: 5px;
 }
 
-.registration_div form .inner input {
-    
-}
 
 .contact {
     border: 0;
@@ -351,7 +363,7 @@ input:focus, textarea:focus, select:focus{
 }
 
 .focused {
-    border-bottom: 2px solid #6E8898;
+    border-bottom: 2px solid var(--secondary);
 }
 
 .promo_div {
@@ -363,18 +375,18 @@ input:focus, textarea:focus, select:focus{
     left: 70%;
     width: 30%;
     background: #F5F5F5;
-    border: 2px solid #6E8898;
+    border: 2px solid var(--secondary);
     text-align: center;
     border-radius: 5px;
-    color: #6E8898;
+    color: var(--secondary);
     margin-top: 20px;
     font-size: 13px; 
     padding: 10px;
 }
 
 .button_next:hover {
-    background: #6E8898;
-    border: 2px solid #6E8898;
+    background: var(--secondary);
+    border: 2px solid var(--secondary);
     color: #F5F5F5;
 }
 
@@ -386,7 +398,7 @@ input:focus, textarea:focus, select:focus{
 }
 
 .text_input:focus {
-    border: 2px solid #6E8898;
+    border: 2px solid var(--secondary);
 }
 
 ::-webkit-scrollbar {
