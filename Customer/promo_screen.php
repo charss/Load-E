@@ -6,6 +6,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&family=Lexend:wght@500&family=Rubik&display=swap');
 
         .test_scroll {
             height: 85%;
@@ -24,6 +25,14 @@
             grid-column-gap: 0px;
             grid-row-gap: 0px;;
             padding: 5px;
+            padding-right: 20px;
+        }
+
+        .contact:hover .promo_desc {
+            /* transform: scale(1.1);
+            margin-right: 20px;
+            overflow: hidden; */
+            display: block;
         }
 
         .price {
@@ -31,15 +40,30 @@
             text-align: center;
             vertical-align: middle;
             place-self: center;
-            
         }
         
         .price .cash {
             font-size: 30px;
             font-weight: 600;
+            color: #6E8898;
+            font-family: 'Rubik';
         }
         .descrip {
             grid-area: 1 / 2 / 2 / 6;;
+        }
+
+        .promo_name {
+            font-weight: 600;
+            
+        }
+
+        .promo_desc {
+            margin-top: 3px;
+            font-size: 12px;
+            display: none;
+        }
+        .pesos {
+            font-size: 10px;
         }
     </style>
     <body>
@@ -88,10 +112,10 @@
                                 $cost = $row['cost'];
                                 echo "<a href='#' class='no_deco'><div class='contact'>";
                                 echo "<div class='price'>";
-                                echo "<span>PHP</span><span class='cash'>$cost</span>";
+                                echo "<span class='pesos'>PHP</span><span class='cash'>$cost</span>";
                                 echo "</div>";
                                 echo "<div class='descrip'>";
-                                echo "<p>$promo</p><p>$sim_desc</p>";
+                                echo "<span class='promo_name'>$promo</span><br><span class='promo_desc'>$sim_desc</span>";
                                 echo "</div>";
                                 echo "</div></a>";
                             }
