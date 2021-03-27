@@ -7,6 +7,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <body>
         <div class="test">
+            <div class='topbar'>
+                <a href='./enter_number.php'>
+                    <img src='../assets/back.png'>
+                </a>
+                <text>BUY LOAD</text>
+            </div>
             <div class='topnav'> 
                 <a href='#' name='regular' class='nav_active'>Regular Load</a>
                 <a href='./promo_screen.php' name='promo'>Promos</a>

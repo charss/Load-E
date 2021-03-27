@@ -2,17 +2,29 @@
     <head>
         <link rel="stylesheet" href="./style.css">
     </head>
+    <style>
+        .header_text {
+            text-align: center;
+            width: 100%;
+        }
+    </style>
     <body>
         <div class="parent">
-            <div class='container'>
+            <div class='topbar'>
+                <a href='./register_or_update.html'>
+                    <img src='../assets/back.png'>
+                </a>
+                <text>UPDATE PROFILE</text>
+            </div>
+            <div class='registration_div'>
+                <div class='header_text'>Sign in</div>
                 <form method='post'>
                     <div class='inner'>
-                        <input type='text' name='user' placeholder='username'>
-                        <input type='password' name='pass' placeholder='password'>
-                        <input type='submit' name='update' value='Update'>
+                        <input type='text' class='text_input' name='user' placeholder='Username'>
+                        <input type='password' class='text_input' name='pass' placeholder='Password'>
+                        <input type='submit' class='button_next' name='update' value='Next'>
                     </div>
                 </form>
-                <a href='register_or_update.html'>Back</a>
             </div>
         </div>
 
@@ -29,7 +41,6 @@
                 }
 
                 if(isset($_POST['user']) && isset($_POST['pass']) && $_POST['user'] != '' && $_POST['pass'] != '') {
-                    echo "OK";
                     $user = $_POST['user'];
                     $pass = $_POST['pass'];
                     $login = false;
@@ -57,7 +68,7 @@
                         
                     } else {
                         echo "<script>alert('Username and password does not exist. Please try again')</script>";
-                        header("refresh:0.1; url=login.php");
+                        header("refresh:0.1; url=login_profile.php");
                     }
                 } 
 

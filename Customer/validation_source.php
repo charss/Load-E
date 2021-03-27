@@ -70,6 +70,7 @@
 			echo "<script>alert('Invalid number. It is not connect to any network. Please try again.')</script><br>";
 			return 0;
 		} elseif ($valid == true) {
+			echo "<script>alert('Valid number.')</script>"; 
 			return true;
 		}
 	}

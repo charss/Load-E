@@ -2,22 +2,33 @@
     <head>
         <link rel="stylesheet" href="./style.css">
     </head>
+    <style>
+        .header_text {
+            text-align: center;
+            width: 100%;
+        }
+    </style>
     <body>
         <?php
             session_start();
         ?>
         <div class="parent">
-            <div class='container'>
-                <h1>UPDATE PROFILE</h1>
+            <div class='topbar'>
+                <a href='./register_or_update.html'>
+                    <img src='../assets/back.png'>
+                </a>
+                <text>UPDATE PROFILE</text>
+            </div>
+            <div class='registration_div'>
+                <div class='header_text'>Update Profile</div>
                 <form method='post'>
                     <div class='inner'>
-                        <input type='text' name='user' placeholder='username' value='<?php echo $_SESSION['name']; ?>' >
-                        <input type='text' name='pass' placeholder='password' value='<?php echo $_SESSION['pass'] ?>'>
-                        <input type='number' name='number' placeholder='number' value='<?php echo $_SESSION['number'] ?>'>
-                        <input type='submit' name='update' value='Update'>
+                        <input type='text' name='user' class='text_input' placeholder='username' value='<?php echo $_SESSION['name']; ?>' >
+                        <input type='text' name='pass' class='text_input' placeholder='password' value='<?php echo $_SESSION['pass'] ?>'>
+                        <input type='number' name='number' class='text_input' placeholder='number' value='<?php echo $_SESSION['number'] ?>'>
+                        <input type='submit' name='update' class='button_next' value='Update'>
                     </div>
                 </form>
-                <a href='register_or_update.html'>Back</a>
             </div>
         </div>
         <?php

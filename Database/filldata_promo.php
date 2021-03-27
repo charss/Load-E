@@ -12,6 +12,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+$sql = '';
 $sql .= "INSERT INTO promo (promo,sim_prov,sim_desc,validity,cost) VALUES
     ('GOSURF10','Globe','40MB internet data','1 day','10'),
     ('GOSURF15','Globe','100MB of mobile internet data+ 30MB for Instragram','2 days','15'),
