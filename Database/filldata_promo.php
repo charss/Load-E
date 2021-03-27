@@ -157,7 +157,7 @@ $sql .= "INSERT INTO promo (promo,sim_prov,sim_desc,validity,cost) VALUES
     ('EASYSURF15','TM','100MB data+ 30MB for Instagram','2 days','15'),
     ('EASYSURF30','TM','300MB data+ 50MB for Facebook, Viber or Snapchat','2 days','30'),
     ('EASYSURF50','TM','2GB data+ 1GB everyday for App of Choice (Facebook, YouTube, Mobile Legends, TikTok, etc.)+ Unlimited texts to all networks','3 days','50'),
-    ('EASYSURF 70','TM','1GB data+ 1GB for App of Bundle (Facebook, YouTube, Mobile Legends, TikTok, etc.) per day for 7 days (7GB total).+ Unlimited texts to all networks','7 days','70'),
+    ('EASYSURF 70','TM','1GB data+ 1GB for App of Bundle (Facebook, YouTube, Mobile Legends, TikTok, etc.) per day(7GB total).+ Unlimited texts to all networks','7 days','70'),
     ('EASYSURF 90','TM','2GB data+ 1GB everyday for App of Bundle (7GB total)+ Unlimited texts to all networks','7 days','90'),
     ('EASYSURF299','TM','2GB mobile data+ 10GB for App Bundle','30 days','299'),
     ('EASYSURF599','TM','5GB data+ 10GB for App Bundle','30 days','599'),
