@@ -268,7 +268,7 @@ $sql .= "INSERT INTO promo (promo,sim_prov,sim_desc,validity,cost) VALUES
     ('GIGA STORIES 299','TNT','4GB data+ 1GB per day you can consume for TikTok, Facebook, Instagram and Twitter','30 days','299'),
     ('GIGA STORIES 399','TNT','6GB data+ 1GB per day you can consume for TikTok, Facebook, Instagram and Twitter','30 days','399'),
     ('GIGA STORIES 499','TNT','8GB data+ 1GB per day you can consume for TikTok, Facebook, Instagram and Twitter',' 30 days','499'),
-    ('GIGA STUDY 99','TNT','2GB data+ 1GB per day for Google Classroom, Google Meet, G Suite, Google Search, MS Teams, YouTube',NULL,'99'),
+    ('GIGA STUDY 99','TNT','2GB data+ 1GB per day for Google Classroom, Google Meet, G Suite, Google Search, MS Teams, YouTube', '7 days','99'),
     ('GIGA STUDY 299','TNT','4GB data+ 1GB per day for Google Classroom, Google Meet, G Suite, Google Search, MS Teams, YouTube','30 days','299'),
     ('GIGA WORK 50','TNT','1GB data+ 1GB per day for Grab, Lazada, Shopee, Paymaya, and more.','3 days','50'),
     ('GIGA WORK 99','TNT','2GB data+ 1GB per day for Grab, Lazada, Shopee, Paymaya, and more.','7 days','99'),

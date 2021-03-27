@@ -33,7 +33,7 @@ if ($conn->connect_error) {
 
 $promo = "CREATE TABLE promo (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-promo VARCHAR(11) NOT NULL,
+promo VARCHAR(30) NOT NULL,
 sim_prov VARCHAR(30) NOT NULL,
 sim_desc VARCHAR(256) NOT NULL,
 validity VARCHAR(30) NOT NULL,

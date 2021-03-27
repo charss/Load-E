@@ -302,7 +302,8 @@ input:focus, textarea:focus, select:focus{
 }
 
 .contact {
-    border: 1px solid black;
+    border: 0;
+    border-bottom: 1px solid #B8B8B8;
     padding: 10px 0px 10px 10px;
 }
 

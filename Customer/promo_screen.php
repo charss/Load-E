@@ -19,15 +19,11 @@
 
         .contact {
             display: grid;
-            grid-template-columns: 0.2fr 1fr;
+            grid-template-columns: 0.4fr 1fr;
             grid-template-rows: 1fr;
             grid-column-gap: 0px;
             grid-row-gap: 0px;;
             padding: 5px;
-        }
-
-        .contact div {
-            border: 1px solid pink;
         }
 
         .price {
