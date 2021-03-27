@@ -76,7 +76,7 @@ $sql .= "INSERT INTO promo (promo,sim_prov,sim_desc,validity,cost) VALUES
     ('UCT 100','Smart','Unlimited calls to SMART, TNT and SUN+ Unlimited texts to all networks+ 500MB for Facebook Messenger and WhatsApp','7 days','100 Pesos'),
     ('UCT 350','Smart','Unlimited calls to SMART, TNT and SUN+ Unlimited texts to all networks+ 1GB data for Facebook Messenger and WhatsApp','30 days','350 Pesos'),
     ('CTS 15','Smart','Unlimited texts to all networks+ 20 minutes calls to Smart, SUN and TNT+ 100MB mobile data+ 100MB for Facebook and Instagram','1 day','15 Pesos'),
-    ('CTS 29','Smart','300MB mobile data+ 100MB everyday for Instagram and Facebook+ Unlimited to Smart, TNT, SUN+ Unlimited texts to all networks',' 2 days validity','29 Pesos'),
+    ('CTS 29','Smart','300MB mobile data+ 100MB everyday for Instagram and Facebook+ Unlimited to Smart, TNT, SUN+ Unlimited texts to all networks','2 days','29 Pesos'),
     ('CTS 49','Smart','500MB mobile data+ 100MB everyday for Instagram and Facebook+ Unlimited to Smart, TNT, SUN+ Unlimited texts to all networks','3 days','49 Pesos'),
     ('CTS 109','Smart','Unlimited calls to Smart, TNT and SUN+ Unlimited texts to all networks+ 100MB everyday for Instagram and Facebook','15 days','109 Pesos'),
     ('Mega All-In 250','Smart','Unlimited texts to all networks+ 180 mins calls to Smart, SUN and TNT+ 100MB mobile data','30 days','250 Pesos'),
