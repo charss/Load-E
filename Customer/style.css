@@ -25,19 +25,19 @@ body {
 .test {
     position: absolute;
     border: 1px solid #B8B8B8;
-    width: 50%;
-    max-width: 400px;
-    height: auto;
+    width: 400px;
+    height: 600px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    padding: 10px;
     border-radius: 2%;
+    overflow: hidden;
 }
 
 .topbar {
+    
     background-color: #6E8898;
-    width: 100%;
+    width: auto;
     height: 30px;
     line-height: 28px;
     font-weight: 600;
@@ -102,7 +102,7 @@ body {
 }
 
 .header_text {
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 10px;
 }
 
@@ -197,7 +197,7 @@ input[type=number] {
     padding-right: 10px;
     text-align: center;
     margin-top: 10px;
-    width: 50%;
+    width: 100%;
 }
 
 .amount_div {
@@ -269,11 +269,6 @@ input:focus, textarea:focus, select:focus{
 .div11 { grid-area: 3 / 3 / 4 / 4; }
 .div12 { grid-area: 4 / 1 / 5 / 4; }
 
-
-.grid_div2 div, .grid_div1 div {
-    /* border: 1px solid black; */
-}
-
 .center {
     display: flex;
     align-items: center;
@@ -303,12 +298,12 @@ input:focus, textarea:focus, select:focus{
 }
 
 .registration_div form .inner input {
-    margin-top: 10px;
-    padding: 8px 0px 8px 10px;
+    
 }
 
 .contact {
-    border: 1px solid black;
+    border: 0;
+    border-bottom: 1px solid #B8B8B8;
     padding: 10px 0px 10px 10px;
 }
 
@@ -330,13 +325,16 @@ input:focus, textarea:focus, select:focus{
     text-decoration: none;
 }
 
-
+.number_form {
+    width: 45%;
+}
 .number_div {
     display: flex;
     flex-direction: row;
     border-bottom: 2px solid #B8B8B8;
     padding-bottom: 10px;
-    width: 45%;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .number_input {
@@ -346,11 +344,60 @@ input:focus, textarea:focus, select:focus{
     font-size: 18px;
     text-align: left;
     padding-bottom: 2px;
-    padding-right: 10px;
+    padding-left: 10px;
     margin-bottom: -10px;
     width: 50%;
+
 }
 
 .focused {
     border-bottom: 2px solid #6E8898;
+}
+
+.promo_div {
+    margin-top: 10px;
+}
+
+.button_next {
+    position: relative;
+    left: 70%;
+    width: 30%;
+    background: #F5F5F5;
+    border: 2px solid #6E8898;
+    text-align: center;
+    border-radius: 5px;
+    color: #6E8898;
+    margin-top: 20px;
+    font-size: 13px; 
+    padding: 10px;
+}
+
+.button_next:hover {
+    background: #6E8898;
+    border: 2px solid #6E8898;
+    color: #F5F5F5;
+}
+
+.text_input {
+    border: 2px solid #B8B8B8;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 8px 0px 8px 10px;
+}
+
+.text_input:focus {
+    border: 2px solid #6E8898;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #dfdfdf;
+    border-radius: 10px;
 }

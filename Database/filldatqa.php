@@ -17,8 +17,7 @@ $sql .= "INSERT INTO history (num,promo,cost,date_purc,date_exp)
 VALUES ('09983023652','GigaSurf99','99','May 30','June 7');";
 $sql .= "INSERT INTO users (num,name,sim_prov,regdate)
 VALUES ('09983023652','Andre Cal','SMART','May 30');";
-$sql .= "INSERT INTO promo (promo,sim_prov,cost)
-VALUES ('Giga99','SMART','99')";
+
 
 if ($conn->multi_query($sql) === TRUE) {
   echo "New records created successfully";

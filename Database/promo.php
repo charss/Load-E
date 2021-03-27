@@ -25,7 +25,7 @@
 			die("Connection failed: " . $conn->connect_error);
 		}
 
-		$sql = "SELECT id, promo, sim_prov, cost FROM promo ORDER BY id";
+		$sql = "SELECT id, promo, sim_prov, sim_desc, validity, cost FROM promo ORDER BY id";
 		$result = $conn->query($sql);
 		echo "<th>Promo</th><th>Sim Provider</th><th>Cost</th>";
 		if ($result->num_rows > 0) {

@@ -5,78 +5,104 @@
     <script src='script.js'></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+
+        .test_scroll {
+            height: 85%;
+            margin-bottom: 200px;
+        }
+        .promo_div {
+            height: 100%;
+            margin: 0em;
+            overflow-y: auto; 
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: 0.4fr 1fr;
+            grid-template-rows: 1fr;
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;;
+            padding: 5px;
+        }
+
+        .price {
+            grid-area: 1 / 1 / 2 / 2;
+            text-align: center;
+            vertical-align: middle;
+            place-self: center;
+            
+        }
+        
+        .price .cash {
+            font-size: 30px;
+            font-weight: 600;
+        }
+        .descrip {
+            grid-area: 1 / 2 / 2 / 6;;
+        }
+    </style>
     <body>
+        <?php 
+            session_start();
+            $network = $_SESSION['network'];
+        ?>
         <div class="test">
+            <div class='topbar'>
+                <a href='./enter_number.php'>
+                    <img src='../assets/back.png'>
+                </a>
+                <text>BUY LOAD</text>
+            </div>
             <div class='topnav'> 
                 <a href='./loading_option.php' name='regular'>Regular Load</a>
-                <a href='#' name='promo' class='nav_active'>Promos</a>
+                <a href='./promo_screen.php' class='nav_active' name='promo'>Promos</a>
             </div>
+            <div class='test_scroll'>
 
-            <form method='post'>
-                <div class="grid_div1">
-                    <div class="div01"> 
-                        <p class='title'>Enter Amount</p>
-                    </div>
-                    <div class="div02">
-                        <div class='amount_div'>
-                            <label class='amount_label'>PHP</label>
-                            <input type="text" onkeypress="return onlyNumber(event)" name='load' onKeyUp='sample()' id="result" class='input_text' maxlength="4"/>
-                        </div>
-                        <span class='simple_text'>Enter an amount between 5 - 1000 or choose from the options below.</span>
-                    </div>
-                </div>
-                <div class='center'>
-                    <div class="grid_div2">
-                        <div class="div3">
-                            <input type="button" id='10' class='input_button' name='10' value="10" onclick="load_dis('10')"/>
-                        </div>
-                        <div class="div4">
-                            <input type="button" id='20' class='input_button' name='20' value="20" onclick="load_dis('20')"/>
-                        </div>
-                        <div class="div5"> 
-                            <input type="button" id='30' class='input_button' name='30' value="30" onclick="load_dis('30')"/>
-                        </div>
-                        <div class="div6">
-                            <input type="button" id='50' class='input_button' name='50' value="50" onclick="load_dis('50')"/>
-                        </div>
-                        <div class="div7"> 
-                            <input type="button" id='100' class='input_button' name='100' value="100" onclick="load_dis('100')"/>
-                        </div>
-                        <div class="div8"> 
-                            <input type="button" id='150' class='input_button' name='150' value="150" onclick="load_dis('150')"/>
-                        </div>
-                        <div class="div9"> 
-                            <input type="button" id='400' class='input_button' name='400' value="450" onclick="load_dis('400')"/>
-                        </div>
-                        <div class="div10"> 
-                            <input type="button" id='600' class='input_button' name='600' value="600" onclick="load_dis('600')"/>
-                        </div>
-                        <div class="div11"> 
-                            <input type="button" id='900' class='input_button' name='900' value="900" onclick="load_dis('900')"/>
-                        </div>
-                        <div class="div12"> 
-                            <input type='submit' class='load_next' name='submit' value='Next'>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <script src='../javascript/regular_load.js'></script>
-            <?php
-                if (isset($_POST['submit'])) {
-                    if (isset($_POST['load'])) {
-                        $load = intval($_POST['load']);
-                        if ($load < 5 or $load > 1000) {
-                            echo "<script>alert('You have provided an invalid amount. Please enter a value between 5 - 1000')</script>";
-                        } else {
-                            session_start();
-                            $_SESSION['load'] = $load;
-                            header('location: receipt.php');
+                <div class='promo_div'>
+                    <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $dbname = "loade";
+
+                        // Create connection
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+                        // Check connection
+                        if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
                         }
-                    } else {
-                        echo "<script>alert('Please enter an amount')</script";
-                    }
-                }
-            ?>
+
+                        $sql = "SELECT * FROM promo WHERE sim_prov='$network' ORDER BY cost";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                        // output data of each row
+                            while($row = $result->fetch_assoc()) {
+                                
+                                $promo = $row['promo'];
+                                $sim_prov = $row['sim_prov'];
+                                $sim_desc = $row['sim_desc'];
+                                $validity = $row['validity'];
+                                $cost = $row['cost'];
+                                echo "<a href='#' class='no_deco'><div class='contact'>";
+                                echo "<div class='price'>";
+                                echo "<span>PHP</span><span class='cash'>$cost</span>";
+                                echo "</div>";
+                                echo "<div class='descrip'>";
+                                echo "<p>$promo</p><p>$sim_desc</p>";
+                                echo "</div>";
+                                echo "</div></a>";
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+                        $conn->close();
+                    ?>
+                </div>
+            </div>
+            
         </div>
     </body>
 </html>

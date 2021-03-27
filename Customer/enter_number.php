@@ -6,10 +6,22 @@
         .input_text { 
             border-bottom: 1px solid gray;
         }
+
+        .button_next {
+            left: 50%;
+            transform: translate(-50%);
+            margin-top: 0px;
+            padding: 5px 10px;
+            width: auto;
+            font-size: 15px;
+        }
     </style>
     
     <script src='./script.js'></script>
     <body>
+        <?php 
+            session_start();
+        ?>
         <div class="parent">
             <div class='topbar'>
                 <a href='./profile_or_load.html'>
@@ -19,28 +31,37 @@
             </div>
             <div class='container'>
                 <span class='header_text'>Enter Number</span>
+                <form class='number_form' method='post'>
                     <div class='number_div' id='input1'>
-                        <input type='number' class='number_input' maxlength="11" id='in' name='mobile_number' value='<?php if (isset($_GET['num'])) { echo $_GET['num']; } ?>' placeholder='Number' />
+                        <input type='number' class='number_input' maxlength="11" id='in' name='mobile_number' value='<?php if (isset($_GET['num'])) { echo $_GET['num']; } else { echo ""; } ?>' placeholder='Number' />
                         <a href='./contacts.php' name='mobile_number' class='quick_a'>
                             <img src='../assets/contacts.svg' onmouseover="this.src='../assets/contacts_colored.svg'" onmouseout="this.src='../assets/contacts.svg'" class='quick_button'>
                         </a>
                     </div>
+                    
+                    <br>
+                    <input type='submit' class='button_next' name='submit' value='Next'>
+                </form>
                 
-                <br>
-                <input type='submit' name='submit' value='Next'>
             </div>
         </div>
 
         <?php 
             if (isset($_POST['submit'])) {
-                $x = '';
-                $x = include './validation_source.php';
-
-                if ($x == 1) {
-                    echo "OK";
+                if ($_POST['mobile_number'] == ''){
+                    echo "<script>alert('Please input a number!')</script>";
+                } else {
+                    $x = '';
+                    $x = include './validation_source.php';
+                    if ($x == 1) {
+                        $_SESSION['number'] = $_POST['mobile_number'];
+                        header('location: loading_option.php');
+                        exit();
+                    }
                 }
             } 
         ?>
+
         <script>
             var input = document.getElementById('in'), div = document.getElementById('input1');
 

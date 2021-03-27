@@ -15,11 +15,11 @@
                 <span class='header_text'>Registration Form</span>
                 <form method='post'>
                     <div class='inner'>
-                        <input type='text' name='user' placeholder='Username'>
-                        <input type='password' name='pass' placeholder='Password'>
-                        <input type='password' name='cpass' placeholder='Confirm Password'>
-                        <input type='number' name='mobile_number' placeholder='Number'>
-                        <input type='submit' name='register' value='Register'>
+                        <input type='text' class='text_input' name='user' placeholder='Username'>
+                        <input type='password' class='text_input' name='pass' placeholder='Password'>
+                        <input type='password' class='text_input' name='cpass' placeholder='Confirm Password'>
+                        <input type='number' class='text_input' name='mobile_number' placeholder='Number'>
+                        <input type='submit' class='button_next' name='register' value='Register'>
                     </div>
                 </form>
             </div>
