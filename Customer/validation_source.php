@@ -71,6 +71,7 @@
 			return 0;
 		} elseif ($valid == true) {
 			echo "<script>alert('Valid number.')</script>"; 
+			$_SESSION['network'] = $network;
 			return true;
 		}
 	}
