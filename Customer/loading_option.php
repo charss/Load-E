@@ -90,7 +90,8 @@
                             echo "<script>alert('You have provided an invalid amount. Please enter a value between 5 - 1000')</script>";
                         } else {
                             $_SESSION['load'] = $load;
-                            header('location: you_sure.php');
+                            exit(header('location: deposit_money.php'));
+                            exit();
                         }
                     } else {
                         echo "<script>alert('Please enter an amount')</script";
