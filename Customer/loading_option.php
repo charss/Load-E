@@ -16,10 +16,16 @@
             background: var(--secondary);
             color: #F5F5F5;
         }
+
+        .center {
+            position: relative;
+            right: 10px;
+        }
     </style>
     <body>
         <?php
             session_start();
+            ob_start();
         ?>
         <div class="test">
             <div class='topbar'>
@@ -89,7 +95,8 @@
                         if ($load < 5 or $load > 1000) {
                             echo "<script>alert('You have provided an invalid amount. Please enter a value between 5 - 1000')</script>";
                         } else {
-                            $_SESSION['load'] = $load;
+                            $_SESSION['load'] = 'Regular';
+                            $_SESSION['cost'] = $load;
                             exit(header('location: deposit_money.php'));
                             exit();
                         }
@@ -97,6 +104,7 @@
                         echo "<script>alert('Please enter an amount')</script";
                     }
                 }
+                ob_flush();
             ?>
         </div>
 

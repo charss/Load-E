@@ -56,11 +56,24 @@
         .div02 {
             margin-left: -20px;
         }
+
+        .due {
+            font-family: 'Rubik';
+            font-size: 25px;
+            color: var(--secondary);
+        }
     </style>
     <body>
         <?php
             session_start();
             ob_start();
+            if (isset($_GET['cost'])) {
+                $load = $_GET['promo'];
+                $cost = $_GET['cost'];
+            } else {
+                $load = $_SESSION['load'];
+                $cost = $_SESSION['cost'];
+            } 
         ?>
         <div class="test">
             <div class='topbar'>
@@ -74,6 +87,7 @@
                 <div class="grid_div1">
                     <div class="div01"> 
                         <p class='title'>Enter Payment</p>
+                        <p class='title'>Amount Due: php <?php echo "<span class='due'>" . $cost . "</span>"; ?></p>
                     </div>
                     <div class="div02">
                         <div class='amount_div' id='div_yeah'>
@@ -125,7 +139,9 @@
             if (isset($_POST['submit'])) {
                 if ($_POST['cash'] != "0") {
                     $cash = intval($_POST['cash']);
-                    if ($cash >= $_SESSION['load']) {
+                    if ($cash >= $cost) {
+                        $_SESSION['load'] = $load;
+                        $_SESSION['cost'] = $cost;
                         $_SESSION['cash'] = $cash;
                         header('location: you_sure.php');
                     } else {

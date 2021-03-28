@@ -17,11 +17,11 @@
         }
     </style>
     
+    <?php 
+        session_start();
+    ?>  
     <script src='./script.js'></script>
     <body>
-        <?php 
-            session_start();
-        ?>
         <div class="parent">
             <div class='topbar'>
                 <a href='./profile_or_load.html'>

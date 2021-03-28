@@ -4,6 +4,7 @@
 <?php 
     session_start();
 ?>
+<link rel='stylesheet' href='./style.css'>
 <style>
 /* -------------------------------------
     GLOBAL
@@ -12,7 +13,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-family: "Open Sans";
     box-sizing: border-box;
     font-size: 14px;
 }
@@ -269,15 +270,34 @@ a {
         width: 100% !important;
     }
 }
+
+    .button {
+        width: 100%;
+        height: auto;
+    }
 </style>
 
-<?php
+<?php 
+    $number = $_SESSION['number'];
+    $load = $_SESSION['load'];
+    $cost = $_SESSION['cost'];
+    $cash = $_SESSION['cash'];
+    $network = $_SESSION['network'];
+    $change = $cash - $cost;
+
+    $conn = new mysqli('localhost', 'root', '', 'loade');
+    if ($conn->connect_error) {
+        die('Connection failed: ' . $conn->connect_error);
+    }
     
-	$number = $_SESSION['number'];
-	$load = $_SESSION['load'];
-	$cash = 100;
-	$network = $_SESSION['network'];
-	$change = $cash - $load;
+    $sql = "INSERT INTO history (num, promo, cost) VALUES ('$number', '$load', '$cost')";
+
+    if ($conn->query($sql) === TRUE) {
+        $last_id = $conn->insert_id;;
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    $conn->close();
 ?>
 
 
@@ -299,14 +319,22 @@ a {
                                     <td class="content-block">
                                         <table class="invoice">
                                             <tbody><tr>
-                                                <td><?php echo $number;?><br>Receipt #12345<br>March 24, 2021</td>
+                                                <td><?php echo $number;?><br>Receipt #<?php echo $last_id ?><br><?php echo date("F j, Y"); ?></td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <table class="invoice-items" cellpadding="0" cellspacing="0">
                                                         <tbody><tr>
                                                             <td>Load: </td>
-                                                            <td class="alignright"><?php echo $load;?></td>
+                                                            <td class="alignright">
+                                                                <?php 
+                                                                    if ($load == 'Regular') {
+                                                                        echo "$load $cost";
+                                                                    } else {
+                                                                        echo $load;
+                                                                    }
+                                                                ?>
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td>Cash:</td>
@@ -329,7 +357,8 @@ a {
                                 
                                 <tr>
                                     <td class="content-block">
-                                        Thank you for using Load-E.
+                                        <p>Thank you for using Load-E.</p>
+                                        <a href='receipt.php' class='button'>DONE</a>
                                     </td>
                                 </tr>
                             </tbody></table>
@@ -342,5 +371,8 @@ a {
     </tr>
 </tbody></table>
 
+<?php 
+    
+?>
 </body>
 </html>

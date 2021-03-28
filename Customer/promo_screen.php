@@ -110,7 +110,7 @@
                                 $sim_desc = $row['sim_desc'];
                                 $validity = $row['validity'];
                                 $cost = $row['cost'];
-                                echo "<a href='#' class='no_deco'><div class='contact'>";
+                                echo "<a href='deposit_money.php?promo=$promo&cost=$cost' class='no_deco'><div class='contact'>";
                                 echo "<div class='price'>";
                                 echo "<span class='pesos'>PHP</span><span class='cash'>$cost</span>";
                                 echo "</div>";
