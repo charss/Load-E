@@ -69,12 +69,12 @@
     <body>
         <?php 
             session_start();
-            if (isset($_SESSION['good'])) {
-                // placeholder
-            } else if (!isset($_SESSION['logged'])) {
-                include "../wrong_loc.php";
-            }
-            unset($_SESSION['logged']);
+            // if (isset($_SESSION['good'])) {
+            //     // placeholder
+            // } else if (!isset($_SESSION['logged'])) {
+            //     include "../wrong_loc.php";
+            // }
+            // unset($_SESSION['logged']);
             $network = $_SESSION['network'];
         ?>
         <div class="test">
@@ -103,10 +103,10 @@
                         if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                         }
-                        if ($network == 'GLOBE/TM') {
-                            $sql = "SELECT * FROM promo WHERE sim_prov='GLOBE' OR sim_prov='TM' sim_ ORDER BY cost";
+                        if ($network == 'Globe/TM') {
+                            $sql = "SELECT * FROM promo WHERE sim_prov='Globe' OR sim_prov='TM' ORDER BY cost";
                         } else {
-                            $sql = "SELECT * FROM promo WHERE sim_prov='$network' sim_ ORDER BY cost";
+                            $sql = "SELECT * FROM promo WHERE sim_prov='$network' ORDER BY cost";
                         }
                         $result = $conn->query($sql);
 
