@@ -69,6 +69,12 @@
     <body>
         <?php 
             session_start();
+            if (isset($_SESSION['good'])) {
+                // placeholder
+            } else if (!isset($_SESSION['logged'])) {
+                include "../wrong_loc.php";
+            }
+            unset($_SESSION['logged']);
             $network = $_SESSION['network'];
         ?>
         <div class="test">
@@ -97,19 +103,22 @@
                         if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                         }
-
-                        $sql = "SELECT * FROM promo WHERE sim_prov='$network' ORDER BY cost";
+                        if ($network == 'GLOBE/TM') {
+                            $sql = "SELECT * FROM promo WHERE sim_prov='GLOBE' OR sim_prov='TM' sim_ ORDER BY cost";
+                        } else {
+                            $sql = "SELECT * FROM promo WHERE sim_prov='$network' sim_ ORDER BY cost";
+                        }
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
                         // output data of each row
                             while($row = $result->fetch_assoc()) {
-                                
                                 $promo = $row['promo'];
                                 $sim_prov = $row['sim_prov'];
                                 $sim_desc = $row['sim_desc'];
                                 $validity = $row['validity'];
                                 $cost = $row['cost'];
+                                $_SESSION['logged'] = true;
                                 echo "<a href='deposit_money.php?promo=$promo&cost=$cost' class='no_deco'><div class='contact'>";
                                 echo "<div class='price'>";
                                 echo "<span class='pesos'>PHP</span><span class='cash'>$cost</span>";

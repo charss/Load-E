@@ -53,7 +53,7 @@
 			$network = 'Sun';
 			$valid = true;
 		} else if (in_array($get_4dgt, $tnt)) {
-			$network = 'Talk n Text';
+			$network = 'TNT';
 			$valid = true;
 		} else if (in_array($get_4dgt, $globe)) {
 			$network = 'Globe';
