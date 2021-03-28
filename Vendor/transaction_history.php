@@ -75,10 +75,10 @@
         ?>
         <div class="test">
             <div class='topbar'>
-                <!-- <a href='./enter_number.php'>
-                    <img src='../assets/back.png'>
+                <a href='../protected.php'>
+                    <img src='../assets/logout.png' class='logout'>
                 </a>
-                <text>BUY LOAD</text> -->
+                <text>VENDOR</text>
             </div>
             <div class='topnav'> 
                 <a href='#' name='regular' id='nav_active'>Transaction History</a>

@@ -67,6 +67,16 @@ body {
     text-decoration: none;
 }
 
+.topbar .logout {
+    position: relative;
+    float: right;
+    width: 20px;
+    height: auto;
+    top: 6px;
+    opacity: 0.5;
+    margin-right: 10px;
+    text-decoration: none;
+}
 .topbar a {
     text-decoration: none;
 }

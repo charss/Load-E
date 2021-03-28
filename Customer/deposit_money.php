@@ -145,6 +145,11 @@
                     arr.push(val);
                     document.getElementById('btnClickedValue').value = arr.toString();
                 }
+
+                function clr() {
+                    arr = []
+                    document.getElementById("result").value = "0"
+                }
                 
             </script>
         </div>

@@ -76,10 +76,10 @@
         ?>
         <div class="test">
             <div class='topbar'>
-                <!-- <a href='./enter_number.php'>
-                    <img src='../assets/back.png'>
+                <a href='../index.html'>
+                    <img src='../assets/logout.png' class='logout'>
                 </a>
-                <text>BUY LOAD</text> -->
+                <text>VENDOR</text>
             </div>
             <div class='topnav'> 
                 <a href='./transaction_history.php' name='regular'>Transaction History</a>
@@ -90,23 +90,14 @@
                     <div class='flexitem1'>
                         <p>Income</p>
                         <?php 
-                            $fp = fopen('../Text_files/income.txt', 'r');
-                            while (!feof($fp)) {
-                                $line = fgets($fp, 1024);
-                                echo "php <span class='money' id='income'>$line</span>";
-                            }
-                            fclose($fp);
+                            echo "php <span class='money' id='income'></span>";
                         ?>
                     </div>
 
                     <div class='flexitem2'>
                         <p>Balance for the month</p>
                         <?php 
-                            $fp = fopen('../Text_files/balance.txt', 'r');
-                            while (!feof($fp)) {
-                                $line = fgets($fp, 1024);
-                                echo "php <span class='money' id='balance'>$line</span>";;
-                            }
+                            echo "php <span class='money' id='balance'></span>";;
                         ?>
                     </div>
                 </div>
@@ -186,11 +177,10 @@
                     ?>
                 </div> -->
             </div>
-            
         </div>
 
         <script>
-            document.getElementById("income").innerHTML = <?php echo $total_income ?>;
+            document.getElementById("income").innerHTML = <?php echo $total_income; ?>;
             document.getElementById("balance").innerHTML = <?php echo $total_balance ?>;
         </script>
     </body>
