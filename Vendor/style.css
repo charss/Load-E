@@ -158,13 +158,14 @@ input[type=number] {
     position: relative;
     color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 12px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 12px;
     width: 100%;
 }
 
-.nav_active {
+#nav_active {
+    font-size: 15px;
     border-bottom: 1px solid var(--secondary);
 }
 
@@ -411,4 +412,65 @@ input:focus, textarea:focus, select:focus{
 ::-webkit-scrollbar-thumb {
     background-color: #dfdfdf;
     border-radius: 10px;
+}
+
+.flex_div {
+    display: flex;
+    flex-direction: row;
+}
+
+.flexitem1, .flexitem2 {
+    width: 50%;
+    /* border: 1px solid black; */
+    text-align: center;
+}
+
+.money {
+    font-family: 'Rubik';
+    color: var(--secondary);
+    font-size: 30px;
+}
+
+.flex_grid p {
+    color: var(--black);
+}
+
+.cash_div p {
+    text-align: center;
+}
+
+.coins_bills {
+    
+    text-align: left;
+    margin-left: 90px;
+}
+
+.pieces {
+    margin-right: 90px;
+    text-align: center;
+    
+}
+
+.piece_count {
+    font-family: 'Rubik';
+    color: var(--secondary);
+    font-size: 30px;
+}
+.money_id {
+    font-family: 'Rubik';
+    color: var(--light_gray);
+    font-size: 30px;
+}
+
+.dash {
+    font-size: 30px;
+}
+.coins_bills, .pieces {
+    /* border: 1px solid black; */
+    width: 50%;
+}
+
+.dash {
+    line-height: 30px;
+    /* border: 1px solid black; */
 }

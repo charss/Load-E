@@ -39,22 +39,33 @@ validity VARCHAR(30) NOT NULL,
 cost INT(30) NOT NULL
 )";
 
+$money = "CREATE TABLE money (
+id INT(4) PRIMARY KEY,
+pieces INT(30) NOT NULL DEFAULT 0
+)";
+
 if ($conn->query($promo) === TRUE) {
-  echo "Table promo created successfully<br>";
+  echo "Table Promo created successfully<br>";
 } else {
-  echo "Error creating table: " . $conn->error;
+  echo "Error creating table: " . $conn->error . "<br>";
 }
 
 if ($conn->query($history) === TRUE) {
   echo "Table History created successfully<br>";
 } else {
-  echo "Error creating table: " . $conn->error;
+  echo "Error creating table: " . $conn->error . "<br>";
 }
 
 if ($conn->query($users) === TRUE) {
-  echo "Table History created successfully<br>";
+  echo "Table Users created successfully<br>";
 } else {
-  echo "Error creating table: " . $conn->error;
+  echo "Error creating table: " . $conn->error . "<br>";
+}
+
+if ($conn->query($money) === TRUE) {
+  echo "Table Money created successfully<br>";
+} else {
+  echo "Error creating table: " . $conn->error . "<br>";
 }
 
 $conn->close();

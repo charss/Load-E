@@ -3,7 +3,7 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <script src='script.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <style>
         .load_next {
             margin-top: 15px;
@@ -74,6 +74,8 @@
                 $load = $_SESSION['load'];
                 $cost = $_SESSION['cost'];
             } 
+
+            
         ?>
         <div class="test">
             <div class='topbar'>
@@ -82,7 +84,6 @@
                 </a>
                 <text>PAYMENT</text>
             </div>
-
             <form method='post'>
                 <div class="grid_div1">
                     <div class="div01"> 
@@ -100,7 +101,7 @@
                 <div class='center'>
                     <div class="grid_div2">
                         <div class="div3">
-                            <input type="button" class='input_button' value='1' onclick="dis('1')"/>
+                            <input type="button" class='input_button' value='1' onclick="arr = dis('1', arr)"/>
                         </div>
                         <div class="div4">
                             <input type="button" class='input_button' value='5' onclick="dis('5')"/>
@@ -131,8 +132,21 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" id="btnClickedValue" name="btnClickedValue" />
             </form>
             
+            
+            <script>
+                var arr = [];
+                function dis(val) {
+                    var current = eval(document.getElementById("result").value);
+                    current = current + eval(val);
+                    document.getElementById("result").value = current;
+                    arr.push(val);
+                    document.getElementById('btnClickedValue').value = arr.toString();
+                }
+                
+            </script>
         </div>
 
         <?php
@@ -143,6 +157,8 @@
                         $_SESSION['load'] = $load;
                         $_SESSION['cost'] = $cost;
                         $_SESSION['cash'] = $cash;
+                        $_SESSION['bills'] = $_POST['btnClickedValue'];
+
                         header('location: you_sure.php');
                     } else {
                         echo "<script>alert('Insufficient payment.')</script>";

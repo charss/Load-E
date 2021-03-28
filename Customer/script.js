@@ -1,7 +1,9 @@
-function dis(val) {
+function dis(val, arr) {
     var current = eval(document.getElementById("result").value);
     current = current + eval(val);
     document.getElementById("result").value = current;
+    arr.push(eval(val));
+    return arr;
 }
 
 function load_dis(val) {
