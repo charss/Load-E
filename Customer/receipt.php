@@ -358,7 +358,7 @@ a {
                                 <tr>
                                     <td class="content-block">
                                         <p>Thank you for using Load-E.</p>
-                                        <a href='receipt.php' class='button'>DONE</a>
+                                        <a href='../index.html' class='button'>DONE</a>
                                     </td>
                                 </tr>
                             </tbody></table>
