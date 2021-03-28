@@ -285,8 +285,10 @@
     $network = $_SESSION['network'];
     $bills = explode( ',', $_SESSION['bills']);
     $change = $cash - $cost;
+    $temp = $change;
+    $change_arr = array();
+    $change_base = array();
 
-     
     $conn = new mysqli('localhost', 'root', '', 'loade');
     if ($conn->connect_error) {
         die('Connection failed: ' . $conn->connect_error);
@@ -312,8 +314,74 @@
         }
     }
 
+    $sql = "SELECT * FROM money";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+    // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $change_base[$row['id']] = $row['pieces'];
+        }
+    }
+
+    print_r($change_base);
+
+    if ($change_base['1000'] > 0) {
+        $change_arr['1000'] = intdiv($temp, 1000);
+        $temp %= 1000;
+    } 
     
+    if ($change_base['500'] > 0){
+        $change_arr['500'] = intdiv($temp, 500);
+        $temp %= 500;
+    } 
     
+    if ($change_base['200'] > 0) {
+        $change_arr['200'] = intdiv($temp, 200);
+        $temp %= 200;
+    } 
+    
+    if ($change_base['100'] > 0) {
+        $change_arr['100'] = intdiv($temp, 100);
+        $temp %= 100;
+    } 
+    
+    if ($change_base['50'] > 0){
+        $change_arr['50'] = intdiv($temp, 50);
+        $temp %= 50;
+    }
+
+    if ($change_base['20'] > 0){
+        $change_arr['20'] = intdiv($temp, 20);
+        $temp %= 20;
+    }
+
+    if ($change_base['10'] > 0){
+        $change_arr['10'] = intdiv($temp, 10);
+        $temp %= 10;
+    }
+
+    if ($change_base['5'] > 0){
+        $change_arr['5'] = intdiv($temp, 5);;
+        $temp %= 5;
+    }
+
+    if ($change_base['1'] > 0){
+        $change_arr['1'] = intdiv($temp, 1);;
+        $temp %= 1;
+    }
+
+    foreach ($change_arr as $key => $value) {
+        $x = intval($key);
+        // echo gettype(intval($value));
+        $sql = "UPDATE money SET pieces=pieces-$value WHERE id=$x";
+        // echo $value . "<br />";
+        if ($conn->query($sql) === TRUE) {
+            // $last_id = $conn->insert_id;
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
 
     $conn->close();
 ?>

@@ -130,8 +130,6 @@
                                 echo "<div class='coins_bills'>php<span class='money_id'>$id</span></div><div class='dash'>:</div><div class='pieces'><span class='piece_count'>$pieces</span>pcs</div>";
                                 echo "</div>";
                             }
-                        } else {
-                            echo "0 results";
                         }
                         $conn->close();
                     ?>
@@ -170,8 +168,6 @@
                                 echo "</div>";
                                 echo "</div></a>";
                             }
-                        } else {
-                            echo "0 results";
                         }
                         $conn->close();
                     ?>
