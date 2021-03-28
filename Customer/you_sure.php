@@ -39,6 +39,10 @@
     <body>
         <?php 
             session_start();
+            if (!isset($_SESSION['logged'])) {
+                include "../wrong_loc.php";
+            }
+            unset($_SESSION['logged']);
             $number = $_SESSION['number'];
             $load = $_SESSION['load'];
             $cost = $_SESSION['cost'];
@@ -66,7 +70,7 @@
                     <div class='load_for'>Buying load for:</div><?php echo "<div class='for_number'>$number</div>" ?>
                 </div>
                 
-                <a href='receipt.php' class='button'>Pay PHP <?php echo $cash ?></a>
+                <a href='receipt.php?logged=true' class='button'>Pay PHP <?php echo $cash ?></a>
             </div>
         </div>
     </body>

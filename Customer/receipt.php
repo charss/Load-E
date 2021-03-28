@@ -3,6 +3,12 @@
 <body>
 <?php 
     session_start();
+    if (isset($_GET['logged]'])) {
+        echo "OK";
+    } else {
+        include "../wrong_loc.php";
+    }
+
 ?>
 <link rel='stylesheet' href='./style.css'>
 <style>

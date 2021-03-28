@@ -19,6 +19,8 @@
     
     <?php 
         session_start();
+        unset($_SESSION['logged']);
+        unset($_SESSION['good']);
     ?>  
     <script src='./script.js'></script>
     <body>
@@ -54,6 +56,8 @@
                     $x = '';
                     $x = include './validation_source.php';
                     if ($x == 1) {
+                        $_SESSION['logged'] = true;
+                        $_SESSION['good'] = true;
                         $_SESSION['number'] = $_POST['mobile_number'];
                         header('location: loading_option.php');
                         exit();

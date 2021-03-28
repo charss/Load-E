@@ -66,6 +66,10 @@
     <body>
         <?php
             session_start();
+            if (!isset($_SESSION['logged'])) {
+                include "../wrong_loc.php";
+            }
+            unset($_SESSION['logged']);
             ob_start();
             if (isset($_GET['cost'])) {
                 $load = $_GET['promo'];
@@ -143,6 +147,7 @@
                         $_SESSION['load'] = $load;
                         $_SESSION['cost'] = $cost;
                         $_SESSION['cash'] = $cash;
+                        $_SESSION['logged'] = true;
                         header('location: you_sure.php');
                     } else {
                         echo "<script>alert('Insufficient payment.')</script>";

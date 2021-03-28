@@ -25,6 +25,13 @@
     <body>
         <?php
             session_start();
+            if (isset($_SESSION['good'])) {
+                // placeholder
+            } else if (!isset($_SESSION['logged'])) {
+                include "../wrong_loc.php";
+            }
+            unset($_SESSION['logged']);
+            $_SESSION['good'] = true;
             ob_start();
         ?>
         <div class="test">
@@ -97,8 +104,8 @@
                         } else {
                             $_SESSION['load'] = 'Regular';
                             $_SESSION['cost'] = $load;
+                            $_SESSION['logged'] = true;
                             exit(header('location: deposit_money.php'));
-                            exit();
                         }
                     } else {
                         echo "<script>alert('Please enter an amount')</script";
