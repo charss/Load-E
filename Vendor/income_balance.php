@@ -28,8 +28,9 @@
             padding-right: 20px;
         }
 
-        .contact:hover .promo_desc {
-            display: block;
+        .contact:hover {
+            transform: scale(1.1);
+            overflow: hidden;
         }
 
         .price {
@@ -57,7 +58,6 @@
         .promo_desc {
             margin-top: 3px;
             font-size: 12px;
-            display: none;
         }
         .pesos {
             font-size: 10px;
@@ -72,22 +72,71 @@
             //     include "../wrong_loc.php";
             // }
             // unset($_SESSION['logged']);
-            $network = $_SESSION['network'];
+            $total_balance = include 'transaction_count.php';
         ?>
         <div class="test">
             <div class='topbar'>
-                <a href='./enter_number.php'>
-                    <img src='../assets/back.png'>
+                <a href='../index.html'>
+                    <img src='../assets/logout.png' class='logout'>
                 </a>
-                <text>BUY LOAD</text>
+                <text>VENDOR</text>
             </div>
             <div class='topnav'> 
-                <a href='./loading_option.php' name='regular'>Regular Load</a>
-                <a href='./promo_screen.php' class='nav_active' name='promo'>Promos</a>
+                <a href='./transaction_history.php' name='regular'>Transaction History</a>
+                <a href='#' name='promo' id='nav_active'>Income/Balance</a>
             </div>
             <div class='test_scroll'>
+                <div class='flex_div'>
+                    <div class='flexitem1'>
+                        <p>Income</p>
+                        <?php 
+                            echo "php <span class='money' id='income'></span>";
+                        ?>
+                    </div>
 
-                <div class='promo_div'>
+                    <div class='flexitem2'>
+                        <p>Balance for the month</p>
+                        <?php 
+                            echo "php <span class='money' id='balance'></span>";;
+                        ?>
+                    </div>
+                </div>
+                
+                <div class='cash_div'>
+                    <p>Coins/Bills Inside the Machine</p>
+                    <?php 
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $dbname = "loade";
+                        $total_income = 0;
+
+                        // Create connection
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+                        // Check connection
+                        if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT * FROM money";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                        // output data of each row
+                            while($row = $result->fetch_assoc()) {
+                                $id = $row['id'];
+                                $pieces = $row['pieces'];
+                                $total_income += $id * $pieces;
+                                echo "<div class=flex_div>";
+                                echo "<div class='coins_bills'>php<span class='money_id'>$id</span></div><div class='dash'>:</div><div class='pieces'><span class='piece_count'>$pieces</span>pcs</div>";
+                                echo "</div>";
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+                        $conn->close();
+                    ?>
+                </div>
+                <!-- <div class='promo_div'>
                     <?php
                         $servername = "localhost";
                         $username = "root";
@@ -100,28 +149,24 @@
                         if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                         }
-                        if ($network == 'Globe/TM') {
-                            $sql = "SELECT * FROM promo WHERE sim_prov='Globe' OR sim_prov='TM' ORDER BY cost";
-                        } else {
-                            $sql = "SELECT * FROM promo WHERE sim_prov='$network' ORDER BY cost";
-                        }
+                        $sql = "SELECT * FROM history";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
                         // output data of each row
                             while($row = $result->fetch_assoc()) {
+                                $id = $row['id'];
+                                $num = $row['num'];
                                 $promo = $row['promo'];
-                                $sim_prov = $row['sim_prov'];
-                                $sim_desc = $row['sim_desc'];
-                                $validity = $row['validity'];
                                 $cost = $row['cost'];
+                                $date = $row['date_purc'];
                                 $_SESSION['logged'] = true;
-                                echo "<a href='deposit_money.php?promo=$promo&cost=$cost' class='no_deco'><div class='contact'>";
+                                echo "<div class='contact'>";
                                 echo "<div class='price'>";
                                 echo "<span class='pesos'>PHP</span><span class='cash'>$cost</span>";
                                 echo "</div>";
                                 echo "<div class='descrip'>";
-                                echo "<span class='promo_name'>$promo</span><br><span class='promo_desc'>$sim_desc</span>";
+                                echo "<span class='promo_name'>$num</span><br><span class='promo_desc'>$promo</span><br><span class='promo_desc'>$date</span>";
                                 echo "</div>";
                                 echo "</div></a>";
                             }
@@ -130,9 +175,13 @@
                         }
                         $conn->close();
                     ?>
-                </div>
+                </div> -->
             </div>
-            
         </div>
+
+        <script>
+            document.getElementById("income").innerHTML = <?php echo $total_income; ?>;
+            document.getElementById("balance").innerHTML = <?php echo $total_balance ?>;
+        </script>
     </body>
 </html>

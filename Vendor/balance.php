@@ -27,7 +27,6 @@ h3 {
 	//iko-connect pa yata 'to sa database so mga variable muna gawin ko
 	$bal = 5000;
 	$vendor = "Theresita";
-
 ?>
 
 <table style="width:auto" class="center">

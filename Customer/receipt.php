@@ -283,8 +283,10 @@
     $cost = $_SESSION['cost'];
     $cash = $_SESSION['cash'];
     $network = $_SESSION['network'];
+    $bills = explode( ',', $_SESSION['bills']);
     $change = $cash - $cost;
 
+     
     $conn = new mysqli('localhost', 'root', '', 'loade');
     if ($conn->connect_error) {
         die('Connection failed: ' . $conn->connect_error);
@@ -297,6 +299,22 @@
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+
+    foreach ($bills as $key => $value) {
+        $x = intval($value);
+        // echo gettype(intval($value));
+        $sql = "UPDATE money SET pieces=pieces+1 WHERE id=$x";
+        // echo $value . "<br />";
+        if ($conn->query($sql) === TRUE) {
+            // $last_id = $conn->insert_id;
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+
+    
+    
+
     $conn->close();
 ?>
 
@@ -372,7 +390,7 @@
 </tbody></table>
 
 <?php 
-    session_destroy();
+    // session_destroy();
 ?>
 </body>
 </html>
