@@ -25,8 +25,6 @@
             $_SESSION['logged'] = true;
             $total_balance += ($cost - ($cost * 0.1));
         }
-    } else {
-        echo "0 results";
     }
     $conn->close();
     return $total_balance;

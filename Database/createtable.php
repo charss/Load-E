@@ -41,7 +41,7 @@ cost INT(30) NOT NULL
 
 $money = "CREATE TABLE money (
 id INT(4) PRIMARY KEY,
-pieces INT(30) NOT NULL DEFAULT 0
+pieces INT(30) NOT NULL DEFAULT 5
 )";
 
 if ($conn->query($promo) === TRUE) {
