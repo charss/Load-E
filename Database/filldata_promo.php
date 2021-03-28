@@ -315,7 +315,7 @@ $sql .= "INSERT INTO promo (promo,sim_prov,sim_desc,validity,cost) VALUES
 
 
 if ($conn->multi_query($sql) === TRUE) {
-  echo "New records created successfully";
+  echo "New records created successfully<br>";
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
